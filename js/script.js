@@ -1,4 +1,4 @@
-let gymnaste = 100;
+let gymnaste = 0;
 let nb_gymnaste_per_click = 1
 let multiplicateur = 0
 let multiplicateur_cost = 10
@@ -12,17 +12,17 @@ document.querySelector (".bonus_cost").innerHTML = bonus_cost
 
 
 
-function recuperer_images(){
-    let images = [
-        {url : "images/gymnaste4.png", min:160 },
-        {url : "images/gymnaste3.png", min:120 },
-        {url : "images/gymnaste2.png", min:10 },
-        {url : "images/olympic-gymnastic-png.png", min:0 },
-    ];
+// function recuperer_images(){
+//     let images = [
+//         {url : "images/gymnaste4.png", min:160 },
+//         {url : "images/gymnaste3.png", min:120 },
+//         {url : "images/gymnaste2.png", min:10 },
+//         {url : "images/olympic-gymnastic-png.png", min:0 },
+//     ];
 
-    result = images.find (element => element.min <= gymnaste)
-    return result.url
-}
+//     result = images.find (element => element.min <= gymnaste)
+//     return result.url
+// }
 
 
 // ---multiplicateur---//
@@ -92,6 +92,22 @@ function augmenterbonus(){
         alert ("Vous n'avez pas assez de gymnastes! \nCliquez encore.")
     }
 }
+
+// Texte aléatoire
+
+function getPhrase(){
+    let listePhrases = [
+        "Tu viens de tomber de la poutre", 
+        "Mince tu viens de dépasser la limite autorisé",
+        "Tu pense finir sur le podium?",
+
+
+    ];
+
+    document.getElementById("phrase").innerHTML=listePhrases[Math.trunc(Math.random() * listePhrases.length)];
+}
+
+setInterval(getPhrase, 3000);
 
 
 
